@@ -5,22 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% seo %}
 
-    <!-- ==========================================================================
-         PERBAIKAN PERFORMA
-         ========================================================================== -->
-
-    <!-- 1. Preconnect ke Google Fonts untuk mempercepat koneksi -->
+    <!-- Mengembalikan link Google Fonts dan main.css ke cara standar -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- 2. Muat Google Fonts secara Asynchronous (tidak memblokir render) -->
-    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- 3. Inline CSS utama (main.css) untuk menghilangkan render-blocking request & memperbaiki cache -->
-    <style>
-    {% include_relative assets/css/main.css %}
-    </style>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 
 </head>
 <body>
@@ -46,7 +36,7 @@
 
     {% include footer.html %}
 
-    <!-- Popup Pencarian (HTML tetap sama) -->
+    <!-- Popup Pencarian dan JavaScripts -->
     <div id="search-overlay" class="search-overlay">
         <div class="search-modal">
             <button id="close-search" class="close-search" aria-label="Tutup Pencarian">&times;</button>
@@ -56,8 +46,7 @@
         </div>
     </div>
 
-    <!-- 4. Defer JavaScript (agar tidak memblokir render) -->
-    <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         // --- Bagian Menu Mobile (Sudah Ada) ---
@@ -124,6 +113,7 @@
 
 </body>
 </html>
+
 
 
 
