@@ -17,49 +17,87 @@
     <main class="container">
         {{ content }}
     </main>
-    <div class="container">
-        <ul id="results-container"></ul>
-    </div>
+
     {% include footer.html %}
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const searchBtn = document.getElementById('search-btn');
-            const desktopMenu = document.getElementById('desktop-menu');
-            const desktopSearch = document.getElementById('desktop-search');
+    <!-- ==========================================================================
+         STRUKTUR HTML UNTUK POPUP PENCARIAN
+         ========================================================================== -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-modal">
+            <button id="close-search" class="close-search" aria-label="Tutup Pencarian">&times;</button>
+            <h3>Cari Artikel</h3>
+            <input type="search" id="search-input-modal" placeholder="Ketik judul atau kata kunci..." autocomplete="off">
+            <ul id="results-container"></ul>
+        </div>
+    </div>
 
-            hamburgerBtn.addEventListener('click', function() {
-                desktopMenu.classList.toggle('is-active');
-                if (desktopSearch.classList.contains('is-active')) {
-                    desktopSearch.classList.remove('is-active');
-                }
-            });
 
-            searchBtn.addEventListener('click', function() {
-                desktopSearch.classList.toggle('is-active');
-                if (desktopMenu.classList.contains('is-active')) {
-                    desktopMenu.classList.remove('is-active');
-                }
-            });
-        });
-    </script>
-    <!-- 1. Memuat library Simple-Jekyll-Search dari CDN -->
+    <!-- JAVASCRIPT LAMA DAN BARU -->
     <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script>
-
-    <!-- 2. Inisialisasi skrip pencarian -->
     <script>
-      SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}"><h4>{title}</h4><span class="search-date">{date}</span></a></li>',
-        noResultsText: '<li>Tidak ada hasil ditemukan.</li>',
-        limit: 10,
-        fuzzy: false
+      document.addEventListener('DOMContentLoaded', function () {
+        // --- Bagian Menu Mobile (Sudah Ada) ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const desktopMenu = document.getElementById('desktop-menu');
+        hamburgerBtn.addEventListener('click', function() {
+            desktopMenu.classList.toggle('is-active');
+        });
+
+        // --- PERBAIKAN TOTAL: LOGIKA POPUP PENCARIAN ---
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchInputModal = document.getElementById('search-input-modal');
+        const openSearchTriggers = document.querySelectorAll('.open-search-trigger');
+        const closeSearchBtn = document.getElementById('close-search');
+
+        // Fungsi untuk membuka popup
+        function openSearch() {
+          searchOverlay.classList.add('is-visible');
+          setTimeout(() => searchInputModal.focus(), 300); // Fokus ke input setelah transisi
+        }
+
+        // Fungsi untuk menutup popup
+        function closeSearch() {
+          searchOverlay.classList.remove('is-visible');
+        }
+
+        // Tambahkan event listener ke semua tombol trigger
+        openSearchTriggers.forEach(trigger => {
+          trigger.addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah form submit
+            openSearch();
+          });
+        });
+        
+        // Event listener untuk tombol close
+        closeSearchBtn.addEventListener('click', closeSearch);
+
+        // Event listener untuk menutup saat klik di luar area modal
+        searchOverlay.addEventListener('click', function(event) {
+          if (event.target === searchOverlay) {
+            closeSearch();
+          }
+        });
+        
+        // Event listener untuk menutup dengan tombol Escape
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && searchOverlay.classList.contains('is-visible')) {
+            closeSearch();
+          }
+        });
+
+        // Inisialisasi Simple-Jekyll-Search
+        SimpleJekyllSearch({
+          searchInput: searchInputModal,
+          resultsContainer: document.getElementById('results-container'),
+          json: '/search.json',
+          searchResultTemplate: '<li><a href="{url}"><h4>{title}</h4><span class="search-date">{date}</span></a></li>',
+          noResultsText: '<li>Tidak ada hasil ditemukan.</li>',
+          limit: 10,
+          fuzzy: false
+        });
       });
     </script>
+
 </body>
 </html>
-
-
