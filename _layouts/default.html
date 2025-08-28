@@ -14,9 +14,19 @@
     {% include header.html %}
     {% include navigation.html %}
 
+    <!-- PERBAIKAN 1: Menambahkan Iklan Header di sini -->
+    <section class="ad-section-responsive container">
+        <img src="https://via.placeholder.com/970x90.png?text=Iklan+Header+Responsif" alt="Iklan Header">
+    </section>
+
     <main class="container">
         {{ content }}
     </main>
+    
+    <!-- PERBAIKAN 2: Menambahkan Iklan Bawah di sini -->
+    <section class="ad-section-responsive container">
+        <img src="https://via.placeholder.com/970x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
+    </section>
 
     {% include footer.html %}
 
@@ -101,3 +111,4 @@
 
 </body>
 </html>
+
