@@ -86,3 +86,30 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
 /* Ad Placeholders */
 .header-ad img, .ad-section-responsive img, .sidebar-widget img, .left-sticky-ad img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .ad-section-responsive img { max-width: 970px; width: 100%; }
+#results-container {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#results-container li a {
+    display: block;
+    padding: 15px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+#results-container li a:hover {
+    background-color: #f8f9fa;
+}
+
+#results-container li h4 {
+    margin: 0 0 5px 0;
+    color: #007bff;
+}
+
+.search-date {
+    font-size: 0.8em;
+    color: #6c757d;
+}
