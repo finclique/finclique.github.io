@@ -1,13 +1,70 @@
 ---
 layout: default
 ---
-<article class="post-container">
-  <header class="post-header">
-    <h1>{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%B %d, %Y" }}</p>
-  </header>
+<div class="main-content-area container">
+    <!-- Sidebar Kiri (Sama seperti Homepage) -->
+    <aside class="left-sticky-ad">
+        <img src="https://via.placeholder.com/160x600.png?text=Iklan+Sticky+160x600" alt="Iklan Sticky">
+    </aside>
 
-  <div class="post-content">
-    {{ content }}
-  </div>
-</article>
+    <!-- Konten Postingan Utama -->
+    <div class="post-grid-container">
+        <article class="post-full-content">
+            {% include breadcrumb.html %}
+            
+            {% if page.image %}
+            <div class="post-feature-image">
+                <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+            </div>
+            {% endif %}
+
+            <header class="post-header">
+                <h1>{{ page.title }}</h1>
+            </header>
+            
+            <hr class="post-separator">
+
+            <section class="post-content">
+                {{ content }}
+            </section>
+
+            {% include social-share.html %}
+
+            <!-- Navigasi Next/Previous -->
+            <nav class="post-navigation">
+                {% if page.previous.url %}
+                  <a href="{{ page.previous.url | relative_url }}" class="prev-post">
+                    <span>&laquo; Post Sebelumnya</span>
+                    <h4>{{ page.previous.title }}</h4>
+                  </a>
+                {% endif %}
+                {% if page.next.url %}
+                  <a href="{{ page.next.url | relative_url }}" class="next-post">
+                    <span>Post Selanjutnya &raquo;</span>
+                    <h4>{{ page.next.title }}</h4>
+                  </a>
+                {% endif %}
+            </nav>
+
+            {% include author-box.html %}
+            {% include facebook-comments.html %}
+        </article>
+    </div>
+
+    <!-- Sidebar Kanan (Sama seperti Homepage) -->
+    <aside class="right-sidebar">
+        <div class="sidebar-widget">
+            <h4>IKLAN STICKY</h4>
+            <img src="https://via.placeholder.com/300x250.png?text=Sidebar+Sticky+300x250" alt="Iklan Sidebar">
+        </div>
+        <div class="sidebar-widget">
+            <h4>POPULAR POST</h4>
+            <ul>
+                <li><a href="#">Judul Postingan Populer 1</a></li>
+                <li><a href="#">Judul Postingan Populer 2</a></li>
+                <li><a href="#">Judul Postingan Populer 3</a></li>
+                <li><a href="#">Judul Postingan Populer 4</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
