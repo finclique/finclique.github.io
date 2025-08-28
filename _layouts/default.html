@@ -4,19 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% seo %}
+
+    <!-- ==========================================================================
+         PERBAIKAN PERFORMA
+         ========================================================================== -->
+
+    <!-- 1. Preconnect ke Google Fonts untuk mempercepat koneksi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+    <!-- 2. Muat Google Fonts secara Asynchronous (tidak memblokir render) -->
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    
+    <!-- 3. Inline CSS utama (main.css) untuk menghilangkan render-blocking request & memperbaiki cache -->
+    <style>
+    {% include_relative assets/css/main.css %}
+    </style>
+
 </head>
 <body>
 
     {% include header.html %}
     {% include navigation.html %}
 
-    <!-- ==========================================================================
-         PERBAIKAN STRUKTUR IKLAN HEADER
-         ========================================================================== -->
     <section class="ad-section-responsive">
         <div class="container">
             <img src="https://via.placeholder.com/970x90.png?text=Iklan+Header+Responsif" alt="Iklan Header">
@@ -27,9 +38,6 @@
         {{ content }}
     </main>
     
-    <!-- ==========================================================================
-         PERBAIKAN STRUKTUR IKLAN BAWAH
-         ========================================================================== -->
     <section class="ad-section-responsive">
         <div class="container">
             <img src="https://via.placeholder.com/970x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
@@ -38,9 +46,7 @@
 
     {% include footer.html %}
 
-    <!-- ==========================================================================
-         STRUKTUR HTML UNTUK POPUP PENCARIAN
-         ========================================================================== -->
+    <!-- Popup Pencarian (HTML tetap sama) -->
     <div id="search-overlay" class="search-overlay">
         <div class="search-modal">
             <button id="close-search" class="close-search" aria-label="Tutup Pencarian">&times;</button>
@@ -50,9 +56,8 @@
         </div>
     </div>
 
-
-    <!-- JAVASCRIPT LAMA DAN BARU -->
-    <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script>
+    <!-- 4. Defer JavaScript (agar tidak memblokir render) -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         // --- Bagian Menu Mobile (Sudah Ada) ---
@@ -119,5 +124,6 @@
 
 </body>
 </html>
+
 
 
