@@ -3,6 +3,7 @@
 title: Judul Blog Anda
 description: "Deskripsi singkat dan menarik tentang blog Anda."
 url: "https://finclique.github.io"
+logo: /assets/images/logo.png
 
 # PERUBAHAN 1: Menambahkan informasi Author untuk Author Box
 author:
@@ -21,3 +22,4 @@ plugins:
 # Konfigurasi Pagination (tetap sama)
 paginate: 6
 paginate_path: "/page/:num/"
+
