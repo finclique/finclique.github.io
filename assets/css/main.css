@@ -86,30 +86,99 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
 /* Ad Placeholders */
 .header-ad img, .ad-section-responsive img, .sidebar-widget img, .left-sticky-ad img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .ad-section-responsive img { max-width: 970px; width: 100%; }
+.search-trigger {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #ccc;
+    transition: background-color 0.2s;
+}
+.search-trigger:hover {
+    background-color: #555;
+    color: #fff;
+}
+.search-trigger span {
+    margin-right: 8px;
+}
+
+/* Overlay (latar belakang gelap) */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 10vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.search-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal/Jendela Popup */
+.search-modal {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.search-modal h3 {
+    margin-top: 0;
+}
+
+/* Tombol Close (X) */
+.close-search {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.5em;
+    font-weight: 300;
+    line-height: 1;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-search:hover {
+    color: #333;
+}
+
+/* Input Pencarian di dalam Modal */
+#search-input-modal {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Kontainer Hasil Pencarian */
 #results-container {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
+    margin: 0;
+    max-height: 50vh; /* Batasi tinggi agar bisa di-scroll */
+    overflow-y: auto; /* Aktifkan scroll jika hasil banyak */
 }
-
 #results-container li a {
-    display: block;
-    padding: 15px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.2s;
+    display: block; padding: 12px 0; border-bottom: 1px solid #eee;
 }
-
-#results-container li a:hover {
-    background-color: #f8f9fa;
-}
-
-#results-container li h4 {
-    margin: 0 0 5px 0;
-    color: #007bff;
-}
-
-.search-date {
-    font-size: 0.8em;
-    color: #6c757d;
-}
+#results-container li a:hover h4 { color: #0056b3; }
+#results-container li h4 { margin: 0 0 5px 0; color: #007bff; }
+.search-date { font-size: 0.8em; color: #6c757d; }
