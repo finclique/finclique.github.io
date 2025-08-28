@@ -14,18 +14,26 @@
     {% include header.html %}
     {% include navigation.html %}
 
-    <!-- PERBAIKAN 1: Menambahkan Iklan Header di sini -->
-    <section class="ad-section-responsive container">
-        <img src="https://via.placeholder.com/970x90.png?text=Iklan+Header+Responsif" alt="Iklan Header">
+    <!-- ==========================================================================
+         PERBAIKAN STRUKTUR IKLAN HEADER
+         ========================================================================== -->
+    <section class="ad-section-responsive">
+        <div class="container">
+            <img src="https://via.placeholder.com/970x90.png?text=Iklan+Header+Responsif" alt="Iklan Header">
+        </div>
     </section>
 
     <main class="container">
         {{ content }}
     </main>
     
-    <!-- PERBAIKAN 2: Menambahkan Iklan Bawah di sini -->
-    <section class="ad-section-responsive container">
-        <img src="https://via.placeholder.com/970x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
+    <!-- ==========================================================================
+         PERBAIKAN STRUKTUR IKLAN BAWAH
+         ========================================================================== -->
+    <section class="ad-section-responsive">
+        <div class="container">
+            <img src="https://via.placeholder.com/970x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
+        </div>
     </section>
 
     {% include footer.html %}
@@ -111,4 +119,5 @@
 
 </body>
 </html>
+
 
