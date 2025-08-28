@@ -33,16 +33,34 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
     <div class="post-grid-container">
         <h2 class="section-title">Postingan Terbaru</h2>
         <div class="post-grid">
-            {% for post in paginator.posts %}
-            <article class="post-grid-item">
-                <a href="{{ post.url | relative_url }}">
-                    <div class="post-grid-image">
-                       <img src="https://via.placeholder.com/300x200.png?text={{post.title | slice: 0, 10 }}..." alt="{{ post.title }}">
-                    </div>
-                    <h3>{{ post.title }}</h3>
-                </a>
-            </article>
-            {% endfor %}
+            <!-- ==========================================================================
+                 PERBAIKAN KUNCI: Mencegah Postingan Duplikat di Halaman Pertama
+                 ========================================================================== -->
+            {% if paginator.page == 1 %}
+                <!-- Jika ini halaman PERTAMA, lewati 1 postingan pertama (offset:1) -->
+                {% for post in site.posts offset:1 limit:4 %}
+                <article class="post-grid-item">
+                    <a href="{{ post.url | relative_url }}">
+                        <div class="post-grid-image">
+                           <img src="https://via.placeholder.com/300x200.png?text={{post.title | slice: 0, 10 }}..." alt="{{ post.title }}">
+                        </div>
+                        <h3>{{ post.title }}</h3>
+                    </a>
+                </article>
+                {% endfor %}
+            {% else %}
+                <!-- Jika ini halaman KEDUA dst., gunakan loop pagination standar -->
+                {% for post in paginator.posts %}
+                <article class="post-grid-item">
+                    <a href="{{ post.url | relative_url }}">
+                        <div class="post-grid-image">
+                           <img src="https://via.placeholder.com/300x200.png?text={{post.title | slice: 0, 10 }}..." alt="{{ post.title }}">
+                        </div>
+                        <h3>{{ post.title }}</h3>
+                    </a>
+                </article>
+                {% endfor %}
+            {% endif %}
         </div>
         
         {% if paginator.total_pages > 1 %}
@@ -69,7 +87,7 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
     <aside class="right-sidebar">
         <div class="sidebar-widget">
             <h4>IKLAN STICKY</h4>
-            <img src="https://via.placeholder.com/300x250.png?text=Sidebar+Sticky+300x250" alt="Iklan Sidebar">
+            <img src="https://via.placeholder.com/300x200.png?text=Sidebar+Sticky+300x250" alt="Iklan Sidebar">
         </div>
         <div class="sidebar-widget">
             <h4>POPULAR POST</h4>
