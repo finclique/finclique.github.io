@@ -3,8 +3,14 @@ body { font-family: 'Open Sans', sans-serif; margin: 0; background-color: #f8f9f
 h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 a { color: #007bff; text-decoration: none; transition: color 0.3s; }
 a:hover { color: #0056b3; }
-img { max-width: 100%; height: auto; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 15px; }
+
+/* --- PERBAIKAN: Menambah jarak atas untuk konten utama --- */
+main.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
 /* Header */
 .site-header { background-color: #fff; padding: 20px 0; border-bottom: 1px solid #e9ecef; }
@@ -12,17 +18,12 @@ img { max-width: 100%; height: auto; }
 .site-title a { font-size: 2em; font-weight: 700; color: #333; }
 
 /* Navigation & Search */
-.main-navigation { 
-    background-color: #343a40; 
-    /* --- PERUBAHAN: Menjadikan menu sticky --- */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-.nav-content { display: flex; justify-content: space-between; align-items: center; min-height: 50px; }
+.main-navigation { position: sticky; top: 0; z-index: 1000; background-color: #343a40; }
+/* --- PERBAIKAN: Menjadikan nav-content sebagai anchor position --- */
+.nav-content { display: flex; justify-content: space-between; align-items: center; min-height: 50px; position: relative; }
 .main-navigation ul { margin: 0; padding: 0; list-style: none; display: flex; }
 .main-navigation ul li { display: inline-block; }
-.main-navigation ul li a { color: #fff; padding: 10px 15px; display: block; font-weight: 600; }
+.main-navigation ul li a { color: #fff; padding: 15px; display: block; font-weight: 600; }
 .search-form { display: flex; }
 .search-form input { padding: 8px; border: none; border-radius: 4px 0 0 4px; }
 .search-form button { padding: 8px 12px; border: none; background-color: #007bff; color: white; cursor: pointer; border-radius: 0 4px 4px 0; }
@@ -33,16 +34,16 @@ img { max-width: 100%; height: auto; }
 .mobile-nav-icons svg { stroke: white; }
 
 /* Ad Sections */
-.ad-section-responsive { text-align: center; margin: 20px 0; padding: 15px; background: #e9ecef; }
+.ad-section-responsive { text-align: center; margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 8px; }
 
 /* Featured Post */
-.featured-post-section { margin: 20px 0; }
+.featured-post-section { margin: 20px 0 30px 0; }
 .featured-post-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 .featured-post-content { padding: 25px; }
 .featured-post-content h2 { margin-top: 0; }
 
 /* Main Content Area */
-.main-content-area { display: flex; gap: 30px; margin-top: 20px;}
+.main-content-area { display: flex; gap: 30px; }
 .left-sticky-ad { width: 160px; flex-shrink: 0; }
 .post-grid-container { flex-grow: 1; }
 .right-sidebar { width: 300px; flex-shrink: 0; }
@@ -52,13 +53,12 @@ img { max-width: 100%; height: auto; }
 .post-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px; }
 .post-grid-item { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: transform 0.2s; }
 .post-grid-item:hover { transform: translateY(-5px); }
-.post-grid-item .post-grid-image { background-color: #eee; }
-.post-grid-item img { display: block; width: 100%; aspect-ratio: 3/2; object-fit: cover;}
+.post-grid-item img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
 .post-grid-item h3 { padding: 15px; margin: 0; font-size: 1.1em; line-height: 1.4; }
 
 /* Sidebar */
 .sidebar-widget { background-color: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-.sidebar-widget.sticky-widget { position: sticky; top: 80px; } /* Disesuaikan dengan tinggi nav-bar */
+.sidebar-widget.sticky-widget { position: sticky; top: 80px; } /* Disesuaikan dengan tinggi nav-bar + margin */
 .sidebar-widget h4 { margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
 .sidebar-widget ul { list-style: none; padding: 0; margin: 0; }
 .sidebar-widget ul li { padding: 8px 0; border-bottom: 1px dashed #ddd; }
@@ -77,7 +77,7 @@ img { max-width: 100%; height: auto; }
 
 
 /* ==========================================================================
-   PERUBAHAN: Responsive Design untuk Tablet & Mobile (max-width: 768px)
+   PERBAIKAN UTAMA: Responsive Design untuk Tablet & Mobile (max-width: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
     /* Header: Sembunyikan iklan besar dan tengahkan judul */
@@ -86,37 +86,34 @@ img { max-width: 100%; height: auto; }
     .site-title a { font-size: 1.8em; }
 
     /* Navigasi Mobile */
-    .nav-content { position: relative; }
-    #desktop-menu, #desktop-search { display: none; /* Sembunyikan menu & search form desktop */ }
+    #desktop-menu, #desktop-search { display: none; }
     .mobile-nav-icons { display: flex; width: 100%; justify-content: space-between; align-items: center; }
 
-    /* Aturan untuk menu mobile yang aktif (muncul) */
-    #desktop-menu.is-active {
+    /* --- PERBAIKAN: Aturan untuk menu & search mobile yang aktif --- */
+    #desktop-menu.is-active, #desktop-search.is-active {
         display: block;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Muncul tepat di bawah nav-bar */
         left: 0;
         width: 100%;
         background-color: #343a40;
-        border-top: 1px solid #555;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     #desktop-menu.is-active li {
         display: block;
-        text-align: center;
+        text-align: left;
         border-bottom: 1px solid #555;
     }
-    
-    /* Aturan untuk form pencarian mobile yang aktif (muncul) */
+    #desktop-menu.is-active li:last-child {
+        border-bottom: none;
+    }
     #desktop-search.is-active {
         display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
         padding: 10px;
         background-color: #f1f1f1;
+        border-top: 1px solid #ddd;
     }
-     #desktop-search.is-active input {
+    #desktop-search.is-active input {
         width: 100%;
     }
 
@@ -133,10 +130,8 @@ img { max-width: 100%; height: auto; }
     .sidebar-widget.sticky-widget { position: static; }
 }
 
-/* Penyesuaian untuk layar sangat kecil (misal: iPhone 5/SE) */
+/* Penyesuaian untuk layar sangat kecil */
 @media (max-width: 480px) {
-    .post-grid {
-        grid-template-columns: 1fr; /* Post grid menjadi 1 kolom */
-    }
+    .post-grid { grid-template-columns: 1fr; } /* Post grid menjadi 1 kolom */
     .site-title a { font-size: 1.5em; }
 }
