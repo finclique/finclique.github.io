@@ -11,10 +11,7 @@
 </head>
 <body>
 
-    <!-- Header (Judul & Iklan) dipanggil pertama -->
     {% include header.html %}
-
-    <!-- PERUBAHAN UTAMA: Navigasi sekarang dipanggil di sini, di luar header -->
     {% include navigation.html %}
 
     <main class="container">
@@ -23,7 +20,6 @@
 
     {% include footer.html %}
 
-    <!-- JAVASCRIPT untuk fungsionalitas mobile -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const hamburgerBtn = document.getElementById('hamburger-btn');
