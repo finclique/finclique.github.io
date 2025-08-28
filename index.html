@@ -10,15 +10,27 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
 </section>
 
 <!-- Featured Post -->
+<!-- Featured Post Otomatis -->
+{% assign latest_post = site.posts.first %}
+{% if latest_post %}
 <section class="featured-post-section container">
     <div class="featured-post-card">
-        <img src="https://via.placeholder.com/800x400.png?text=Featured+Image" alt="Featured Post">
+        <a href="{{ latest_post.url | relative_url }}" aria-label="Baca selengkapnya tentang {{ latest_post.title }}">
+            {% if latest_post.image %}
+                <!-- Jika ada gambar di front matter, tampilkan -->
+                <img src="{{ latest_post.image | relative_url }}" alt="{{ latest_post.title }}">
+            {% else %}
+                <!-- Jika tidak ada, tampilkan placeholder -->
+                <img src="https://via.placeholder.com/800x400.png?text=Baca+Selengkapnya" alt="{{ latest_post.title }}">
+            {% endif %}
+        </a>
         <div class="featured-post-content">
-            <h2><a href="#">Ini Adalah Judul Featured Post</a></h2>
-            <p>Ini adalah ringkasan singkat dari postingan unggulan yang menarik perhatian pembaca untuk mengklik dan membaca lebih lanjut...</p>
+            <h2><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h2>
+            <p>{{ latest_post.excerpt | strip_html | truncatewords: 25 }}</p>
         </div>
     </div>
 </section>
+{% endif %}
 
 <!-- Konten Utama: Post Grid dan Sidebar -->
 <div class="main-content-area container">
@@ -73,3 +85,4 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
 <section class="ad-section-responsive container">
     <img src="https://via.placeholder.com/970x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
 </section>
+
