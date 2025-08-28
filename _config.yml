@@ -9,6 +9,7 @@ author: Nama Anda # <-- GANTI INI
 # Jangan hapus plugin ini, ini untuk SEO otomatis
 plugins:
   - jekyll-seo-tag
+  - jekyll-paginate
 
 # Informasi Tambahan untuk SEO (Opsional, tapi sangat disarankan)
 twitter:
@@ -17,4 +18,5 @@ social:
   name: Nama Lengkap Anda # <-- GANTI INI
   links:
     - https://twitter.com/username_twitter_anda # <-- GANTI INI
+
     - https://github.com/finclique # <-- GANTI INI DENGAN USERNAME GITHUB ANDA
