@@ -1,0 +1,74 @@
+---
+layout: default
+title: Homepage # Judul khusus untuk homepage
+description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blog ini secara umum."
+---
+
+<!-- Iklan Header Responsif -->
+<section class="ad-section-responsive container">
+    <img src="https://via.placeholder.com/1080x90.png?text=Iklan+Header+Responsif" alt="Iklan Header">
+</section>
+
+<!-- Featured Post -->
+<section class="featured-post-section container">
+    <div class="featured-post-card">
+        <img src="https://via.placeholder.com/800x400.png?text=Featured+Image" alt="Featured Post">
+        <div class="featured-post-content">
+            <h2><a href="#">Ini Adalah Judul Featured Post</a></h2>
+            <p>Ini adalah ringkasan singkat dari postingan unggulan yang menarik perhatian pembaca untuk mengklik dan membaca lebih lanjut...</p>
+        </div>
+    </div>
+</section>
+
+<!-- Konten Utama: Post Grid dan Sidebar -->
+<div class="main-content-area container">
+    <!-- Iklan Sticky Kiri -->
+    <aside class="left-sticky-ad">
+        <img src="https://via.placeholder.com/160x600.png?text=Iklan+Sticky+160x600" alt="Iklan Sticky">
+    </aside>
+
+    <!-- Post Grid -->
+    <div class="post-grid-container">
+        <h2 class="section-title">Postingan Terbaru</h2>
+        <div class="post-grid">
+            {% for post in site.posts limit:4 %}
+            <article class="post-grid-item">
+                <a href="{{ post.url | relative_url }}">
+                    <div class="post-grid-image">
+                       <img src="https://via.placeholder.com/300x200.png?text={{post.title | slice: 0, 10 }}..." alt="{{ post.title }}">
+                    </div>
+                    <h3>{{ post.title }}</h3>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+        <!-- Pagination -->
+        <nav class="pagination">
+            <a href="#" class="page-numbers current">1</a>
+            <a href="#" class="page-numbers">2</a>
+            <a href="#" class="page-numbers">Lainnya &raquo;</a>
+        </nav>
+    </div>
+
+    <!-- Sidebar Kanan -->
+    <aside class="right-sidebar">
+        <div class="sidebar-widget sticky-widget">
+            <h4>IKLAN STICKY</h4>
+            <img src="https://via.placeholder.com/300x250.png?text=Sidebar+Sticky+300x250" alt="Iklan Sidebar">
+        </div>
+        <div class="sidebar-widget">
+            <h4>POPULAR POST</h4>
+            <ul>
+                <li><a href="#">Judul Postingan Populer 1</a></li>
+                <li><a href="#">Judul Postingan Populer 2</a></li>
+                <li><a href="#">Judul Postingan Populer 3</a></li>
+                <li><a href="#">Judul Postingan Populer 4</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+<!-- Iklan Bawah -->
+<section class="ad-section-responsive container">
+    <img src="https://via.placeholder.com/1080x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
+</section>

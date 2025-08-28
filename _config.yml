@@ -1,0 +1,20 @@
+# _config.yml
+
+title: Judul Blog Anda # <-- GANTI INI
+description: "Deskripsi singkat dan menarik tentang blog Anda. Ini penting untuk Google." # <-- GANTI INI
+url: "https://finclique.github.io" # <-- JANGAN DIUBAH
+author: Nama Anda # <-- GANTI INI
+
+# Plugins
+# Jangan hapus plugin ini, ini untuk SEO otomatis
+plugins:
+  - jekyll-seo-tag
+
+# Informasi Tambahan untuk SEO (Opsional, tapi sangat disarankan)
+twitter:
+  username: username_twitter_anda # <-- GANTI INI (tanpa @)
+social:
+  name: Nama Lengkap Anda # <-- GANTI INI
+  links:
+    - https://twitter.com/username_twitter_anda # <-- GANTI INI
+    - https://github.com/finclique # <-- GANTI INI DENGAN USERNAME GITHUB ANDA
