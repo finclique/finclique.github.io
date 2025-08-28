@@ -45,10 +45,13 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
     align-self: flex-start; /* PENTING: Mencegah sidebar meregang */
 }
 
-/* --- ATURAN LAMA DIHAPUS --- */
-/* .sidebar-widget.sticky-widget { ... } sudah tidak ada lagi */
-
-/* ... Sisa Kode CSS ... */
+.footer-links a:not(:first-child)::before {
+    content: '◍';                       /* Simbol yang akan ditampilkan */
+    margin: 0 12px;                     /* Memberi jarak 12px di kiri dan kanan simbol */
+    color: rgba(255, 255, 255, 0.6);    /* Warna simbol dibuat sedikit redup agar tidak terlalu mencolok */
+    font-size: 0.8em;                   /* Membuat ukuran simbol sedikit lebih kecil dari teks */
+    vertical-align: middle;             /* Memastikan simbol berada di tengah secara vertikal */
+}
 
 /* Ad Sections */
 .ad-section-responsive { text-align: center; margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 8px; }
@@ -98,3 +101,4 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
 }
 .header-ad img, .ad-section-responsive img, .sidebar-widget img, .left-sticky-ad img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .ad-section-responsive img { max-width: 970px; width: 100%; }
+
