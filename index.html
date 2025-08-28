@@ -4,12 +4,6 @@ title: Homepage
 description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blog ini secara umum."
 ---
 
-<!-- Iklan Header Responsif -->
-<section class="ad-section-responsive container">
-    <img src="https://via.placeholder.com/970x90.png?text=Iklan+Header+Responsif" alt="Iklan Header">
-</section>
-
-<!-- Featured Post -->
 <!-- Featured Post Otomatis -->
 {% assign latest_post = site.posts.first %}
 {% if latest_post %}
@@ -17,10 +11,8 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
     <div class="featured-post-card">
         <a href="{{ latest_post.url | relative_url }}" aria-label="Baca selengkapnya tentang {{ latest_post.title }}">
             {% if latest_post.image %}
-                <!-- Jika ada gambar di front matter, tampilkan -->
                 <img src="{{ latest_post.image | relative_url }}" alt="{{ latest_post.title }}">
             {% else %}
-                <!-- Jika tidak ada, tampilkan placeholder -->
                 <img src="https://via.placeholder.com/800x400.png?text=Baca+Selengkapnya" alt="{{ latest_post.title }}">
             {% endif %}
         </a>
@@ -43,7 +35,8 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
     <div class="post-grid-container">
         <h2 class="section-title">Postingan Terbaru</h2>
         <div class="post-grid">
-            {% for post in site.posts limit:4 %}
+            <!-- PERUBAHAN 1: Loop diubah untuk menggunakan 'paginator.posts' -->
+            {% for post in paginator.posts %}
             <article class="post-grid-item">
                 <a href="{{ post.url | relative_url }}">
                     <div class="post-grid-image">
@@ -54,17 +47,36 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
             </article>
             {% endfor %}
         </div>
-        <!-- Pagination -->
+        
+        <!-- PERUBAHAN 2: Pagination Statis diganti dengan Pagination Dinamis -->
+        {% if paginator.total_pages > 1 %}
         <nav class="pagination">
-            <a href="#" class="page-numbers current">1</a>
-            <a href="#" class="page-numbers">2</a>
-            <a href="#" class="page-numbers">Lainnya &raquo;</a>
+            <!-- Tombol Previous -->
+            {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path | relative_url }}" class="page-numbers">&laquo; Previous</a>
+            {% endif %}
+
+            <!-- Nomor Halaman -->
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                    <span class="page-numbers current">{{ page }}</span>
+                {% elsif page == 1 %}
+                    <a href="{{ '/' | relative_url }}" class="page-numbers">{{ page }}</a>
+                {% else %}
+                    <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-numbers">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Tombol Next -->
+            {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path | relative_url }}" class="page-numbers">Next &raquo;</a>
+            {% endif %}
         </nav>
+        {% endif %}
     </div>
 
     <!-- Sidebar Kanan -->
     <aside class="right-sidebar">
-        <!-- PERUBAHAN: class "sticky-widget" dihilangkan dari div di bawah ini -->
         <div class="sidebar-widget">
             <h4>IKLAN STICKY</h4>
             <img src="https://via.placeholder.com/300x250.png?text=Sidebar+Sticky+300x250" alt="Iklan Sidebar">
@@ -85,4 +97,3 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
 <section class="ad-section-responsive container">
     <img src="https://via.placeholder.com/970x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
 </section>
-
