@@ -28,32 +28,10 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
 /* Main Content Area */
 .main-content-area { display: flex; gap: 30px; }
 .post-grid-container { flex-grow: 1; }
+.left-sticky-ad { width: 160px; flex-shrink: 0; position: sticky; top: 80px; align-self: flex-start; }
+.right-sidebar { width: 300px; flex-shrink: 0; position: sticky; top: 80px; align-self: flex-start; }
 
-/* --- PERBAIKAN STICKY SIDEBAR --- */
-.left-sticky-ad {
-    width: 160px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 80px; /* Jarak dari atas (tinggi nav-bar + margin) */
-    align-self: flex-start; /* PENTING: Mencegah sidebar meregang */
-}
-.right-sidebar {
-    width: 300px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 80px; /* Jarak dari atas (tinggi nav-bar + margin) */
-    align-self: flex-start; /* PENTING: Mencegah sidebar meregang */
-}
-
-.footer-links a:not(:first-child)::before {
-    content: '◍';                       /* Simbol yang akan ditampilkan */
-    margin: 0 12px;                     /* Memberi jarak 12px di kiri dan kanan simbol */
-    color: rgba(255, 255, 255, 0.6);    /* Warna simbol dibuat sedikit redup agar tidak terlalu mencolok */
-    font-size: 0.8em;                   /* Membuat ukuran simbol sedikit lebih kecil dari teks */
-    vertical-align: middle;             /* Memastikan simbol berada di tengah secara vertikal */
-}
-
-/* Ad Sections */
+/* Content Styling */
 .ad-section-responsive { text-align: center; margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 8px; }
 .featured-post-section { margin: 20px 0 30px 0; }
 .featured-post-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
@@ -73,12 +51,37 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
 .pagination { text-align: center; margin: 20px 0; }
 .page-numbers { display: inline-block; padding: 8px 12px; margin: 0 4px; border: 1px solid #ddd; border-radius: 4px; }
 .page-numbers.current { background-color: #007bff; color: #fff; border-color: #007bff; }
-.footer-content { text-align: center; }
-.footer-links { margin-bottom: 15px; }
-.footer-links a { color: #fff; margin: 0 10px; font-size: 0.9em; }
-.site-footer { background-color: #343a40; color: #fff; padding: 20px 0; margin-top: 30px; }
 
-/* Responsive & Ad Placeholders */
+
+/* ==========================================================================
+   PERBAIKAN TOTAL: Footer dengan Flexbox Responsif
+   ========================================================================== */
+.site-footer { background-color: #343a40; color: #fff; padding: 30px 0; margin-top: 30px; }
+.footer-content { text-align: center; }
+.footer-links {
+    margin-bottom: 20px;
+    display: flex;            /* 1. Mengaktifkan Flexbox */
+    flex-wrap: wrap;          /* 2. Izinkan item pindah ke baris baru */
+    justify-content: center;  /* 3. Ratakan di tengah secara horizontal */
+    align-items: center;      /* 4. Ratakan di tengah secara vertikal */
+}
+.footer-links a {
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 0; /* Memberi ruang vertikal saat wrapping */
+}
+/* Menggunakan pseudo-element untuk separator, sama seperti sebelumnya */
+.footer-links a:not(:first-child)::before {
+    content: '◍';
+    margin: 0 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+}
+
+
+/* ==========================================================================
+   Responsive & Mobile Fixes
+   ========================================================================== */
 @media (max-width: 768px) {
     .header-ad { display: none; }
     .header-content { justify-content: center; text-align: center; }
@@ -95,10 +98,22 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
     .post-grid-container, .right-sidebar { width: 100%; }
     .right-sidebar { position: static; }
 }
+
 @media (max-width: 480px) {
     .post-grid { grid-template-columns: 1fr; }
     .site-title a { font-size: 1.5em; }
+
+    /* --- PERBAIKAN: Footer di layar sangat kecil --- */
+    /* Menghilangkan simbol pemisah agar terlihat lebih rapi saat ditumpuk */
+    .footer-links a:not(:first-child)::before {
+        display: none;
+    }
+    .footer-links a {
+        padding: 8px 0; /* Menambah jarak vertikal antar link */
+        width: 100%; /* Membuat setiap link memenuhi lebar */
+    }
 }
+
+/* Ad Placeholders */
 .header-ad img, .ad-section-responsive img, .sidebar-widget img, .left-sticky-ad img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .ad-section-responsive img { max-width: 970px; width: 100%; }
-
