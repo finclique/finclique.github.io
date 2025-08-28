@@ -11,6 +11,10 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
 
+# Konfigurasi Pagination
+paginate: 6
+paginate_path: "/page/:num/"
+
 # Informasi Tambahan untuk SEO (Opsional, tapi sangat disarankan)
 twitter:
   username: username_twitter_anda # <-- GANTI INI (tanpa @)
@@ -20,3 +24,4 @@ social:
     - https://twitter.com/username_twitter_anda # <-- GANTI INI
 
     - https://github.com/finclique # <-- GANTI INI DENGAN USERNAME GITHUB ANDA
+
