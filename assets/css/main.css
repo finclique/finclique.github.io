@@ -35,6 +35,20 @@ main.container {
 
 /* Ad Sections */
 .ad-section-responsive { text-align: center; margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 8px; }
+.header-ad img,
+.ad-section-responsive img,
+.sidebar-widget img,
+.left-sticky-ad img {
+    max-width: 100%; /* PENTING: Memastikan gambar tidak pernah lebih lebar dari kontainernya. */
+    height: auto;    /* PENTING: Menjaga rasio aspek (tinggi otomatis menyesuaikan lebar) agar gambar tidak terdistorsi. */
+    display: block;  /* Praktik terbaik: Menghilangkan spasi kosong aneh di bawah gambar. */
+    margin: 0 auto;  /* Menengahkan gambar iklan jika kontainernya lebih lebar. */
+}
+.ad-section-responsive img {
+    /* Anda bisa mengubah angka 970px ini sesuai kebutuhan, atau menghapus blok ini jika tidak diperlukan */
+    max-width: 970px; 
+    width: 100%;
+}
 
 /* Featured Post */
 .featured-post-section { margin: 20px 0 30px 0; }
@@ -135,3 +149,4 @@ main.container {
     .post-grid { grid-template-columns: 1fr; } /* Post grid menjadi 1 kolom */
     .site-title a { font-size: 1.5em; }
 }
+
