@@ -11,7 +11,11 @@
 </head>
 <body>
 
+    <!-- Header (Judul & Iklan) dipanggil pertama -->
     {% include header.html %}
+
+    <!-- PERUBAHAN UTAMA: Navigasi sekarang dipanggil di sini, di luar header -->
+    {% include navigation.html %}
 
     <main class="container">
         {{ content }}
@@ -29,7 +33,6 @@
 
             hamburgerBtn.addEventListener('click', function() {
                 desktopMenu.classList.toggle('is-active');
-                // Sembunyikan pencarian jika menu dibuka
                 if (desktopSearch.classList.contains('is-active')) {
                     desktopSearch.classList.remove('is-active');
                 }
@@ -37,7 +40,6 @@
 
             searchBtn.addEventListener('click', function() {
                 desktopSearch.classList.toggle('is-active');
-                // Sembunyikan menu jika pencarian dibuka
                 if (desktopMenu.classList.contains('is-active')) {
                     desktopMenu.classList.remove('is-active');
                 }
