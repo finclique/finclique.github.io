@@ -198,4 +198,9 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
     .post-navigation a { width: 100%; }
     .next-post { text-align: left; }
 }
+.site-logo {
+    max-height: 50px; /* Batasi tinggi maksimum logo. Anda bisa mengubah angka ini (misal: 60px). */
+    width: auto;      /* Biarkan lebar menyesuaikan secara otomatis agar proporsional. */
+    vertical-align: middle; /* Memastikan logo sejajar dengan baik */
+}
 
