@@ -52,36 +52,14 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
 .page-numbers { display: inline-block; padding: 8px 12px; margin: 0 4px; border: 1px solid #ddd; border-radius: 4px; }
 .page-numbers.current { background-color: #007bff; color: #fff; border-color: #007bff; }
 
-
-/* ==========================================================================
-   PERBAIKAN TOTAL: Footer dengan Flexbox Responsif
-   ========================================================================== */
+/* Footer */
 .site-footer { background-color: #343a40; color: #fff; padding: 30px 0; margin-top: 30px; }
 .footer-content { text-align: center; }
-.footer-links {
-    margin-bottom: 20px;
-    display: flex;            /* 1. Mengaktifkan Flexbox */
-    flex-wrap: wrap;          /* 2. Izinkan item pindah ke baris baru */
-    justify-content: center;  /* 3. Ratakan di tengah secara horizontal */
-    align-items: center;      /* 4. Ratakan di tengah secara vertikal */
-}
-.footer-links a {
-    color: #fff;
-    font-size: 0.9em;
-    padding: 5px 0; /* Memberi ruang vertikal saat wrapping */
-}
-/* Menggunakan pseudo-element untuk separator, sama seperti sebelumnya */
-.footer-links a:not(:first-child)::before {
-    content: '◍';
-    margin: 0 12px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.8em;
-}
+.footer-links { margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
+.footer-links a { color: #fff; font-size: 0.9em; padding: 5px 0; }
+.footer-links a:not(:first-child)::before { content: '◍'; margin: 0 12px; color: rgba(255, 255, 255, 0.6); font-size: 0.8em; }
 
-
-/* ==========================================================================
-   Responsive & Mobile Fixes
-   ========================================================================== */
+/* Responsive & Mobile Fixes */
 @media (max-width: 768px) {
     .header-ad { display: none; }
     .header-content { justify-content: center; text-align: center; }
@@ -102,16 +80,7 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
 @media (max-width: 480px) {
     .post-grid { grid-template-columns: 1fr; }
     .site-title a { font-size: 1.5em; }
-
-    /* --- PERBAIKAN: Footer di layar sangat kecil --- */
-    /* Menghilangkan simbol pemisah agar terlihat lebih rapi saat ditumpuk */
-    .footer-links a:not(:first-child)::before {
-        display: none;
-    }
-    .footer-links a {
-        padding: 8px 0; /* Menambah jarak vertikal antar link */
-        width: 100%; /* Membuat setiap link memenuhi lebar */
-    }
+    /* PERBAIKAN: Aturan footer yang memaksa jadi vertikal sudah DIHAPUS dari sini */
 }
 
 /* Ad Placeholders */
