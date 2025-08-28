@@ -26,16 +26,13 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
 
 <!-- Konten Utama: Post Grid dan Sidebar -->
 <div class="main-content-area container">
-    <!-- Iklan Sticky Kiri -->
     <aside class="left-sticky-ad">
         <img src="https://via.placeholder.com/160x600.png?text=Iklan+Sticky+160x600" alt="Iklan Sticky">
     </aside>
 
-    <!-- Post Grid -->
     <div class="post-grid-container">
         <h2 class="section-title">Postingan Terbaru</h2>
         <div class="post-grid">
-            <!-- PERUBAHAN 1: Loop diubah untuk menggunakan 'paginator.posts' -->
             {% for post in paginator.posts %}
             <article class="post-grid-item">
                 <a href="{{ post.url | relative_url }}">
@@ -48,15 +45,11 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
             {% endfor %}
         </div>
         
-        <!-- PERUBAHAN 2: Pagination Statis diganti dengan Pagination Dinamis -->
         {% if paginator.total_pages > 1 %}
         <nav class="pagination">
-            <!-- Tombol Previous -->
             {% if paginator.previous_page %}
                 <a href="{{ paginator.previous_page_path | relative_url }}" class="page-numbers">&laquo; Previous</a>
             {% endif %}
-
-            <!-- Nomor Halaman -->
             {% for page in (1..paginator.total_pages) %}
                 {% if page == paginator.page %}
                     <span class="page-numbers current">{{ page }}</span>
@@ -66,8 +59,6 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
                     <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-numbers">{{ page }}</a>
                 {% endif %}
             {% endfor %}
-
-            <!-- Tombol Next -->
             {% if paginator.next_page %}
                 <a href="{{ paginator.next_page_path | relative_url }}" class="page-numbers">Next &raquo;</a>
             {% endif %}
@@ -75,7 +66,6 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
         {% endif %}
     </div>
 
-    <!-- Sidebar Kanan -->
     <aside class="right-sidebar">
         <div class="sidebar-widget">
             <h4>IKLAN STICKY</h4>
@@ -93,7 +83,6 @@ description: "Ini adalah deskripsi untuk halaman depan, jelaskan tentang apa blo
     </aside>
 </div>
 
-<!-- Iklan Bawah -->
 <section class="ad-section-responsive container">
     <img src="https://via.placeholder.com/970x90.png?text=Iklan+Bawah+Responsif" alt="Iklan Bawah">
 </section>
