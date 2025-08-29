@@ -13,6 +13,7 @@ author:
 
 # PERUBAHAN 2: Mengubah struktur URL postingan menjadi /judul-postingan/
 permalink: /:slug/
+highlighter: rouge
 
 # Plugins
 plugins:
@@ -22,4 +23,5 @@ plugins:
 # Konfigurasi Pagination (tetap sama)
 paginate: 6
 paginate_path: "/page/:num/"
+
 
