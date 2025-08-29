@@ -282,13 +282,12 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
     color: #fff;
 }
 
-/* --- Latar Belakang Bintang Parallax --- */
+/* --- Latar Belakang Bintang Parallax (CSS Murni) --- */
 @keyframes move-stars-bg {
-    from { transform: translateY(0px); }
-    to   { transform: translateY(-10000px); }
+    from { background-position: 0 0; }
+    to   { background-position: 0 10000px; }
 }
 .stars {
-    background: black url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABtnClUFMAAAAASUVORK5CYII=) repeat;
     position: absolute;
     top: 0;
     left: 0;
@@ -298,17 +297,25 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
     height: 100%;
     display: block;
     z-index: 0;
+    /* Efek bintang menggunakan CSS radial-gradient */
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, white, rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 40px 70px, white, rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 90px 40px, white, rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 130px 80px, white, rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 160px 120px, white, rgba(255,255,255,0));
+    background-repeat: repeat;
 }
 #stars1 {
-    background-size: 50px 50px;
+    background-size: 250px 250px;
     animation: move-stars-bg 200s linear infinite;
 }
 #stars2 {
-    background-size: 100px 100px;
+    background-size: 500px 500px;
     animation: move-stars-bg 150s linear infinite;
 }
 #stars3 {
-    background-size: 150px 150px;
+    background-size: 750px 750px;
     animation: move-stars-bg 100s linear infinite;
 }
 
@@ -390,5 +397,6 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
     .object_astronaut { left: 5%; }
     .p-404-1 { font-size: 2em; }
 }
+
 
 
