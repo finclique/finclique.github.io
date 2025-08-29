@@ -68,3 +68,43 @@ layout: default
         </div>
     </aside>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Temukan semua blok kode
+    const codeBlocks = document.querySelectorAll('.post-content pre.highlight');
+
+    codeBlocks.forEach(function(codeBlock) {
+        // 2. Buat tombol copy
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-code-button';
+        copyButton.innerHTML = 'Copy'; // Anda bisa ganti dengan ikon SVG jika mau
+
+        // 3. Tambahkan tombol ke dalam blok kode
+        codeBlock.parentNode.insertBefore(copyButton, codeBlock);
+        
+        // 4. Inisialisasi ClipboardJS pada tombol
+        const clipboard = new ClipboardJS(copyButton, {
+            target: function(trigger) {
+                return codeBlock.querySelector('code');
+            }
+        });
+
+        // 5. Beri feedback visual saat berhasil di-copy
+        clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.textContent = 'Copied!';
+            setTimeout(function() {
+                e.trigger.textContent = 'Copy';
+            }, 2000);
+        });
+
+        clipboard.on('error', function(e) {
+            e.trigger.textContent = 'Error';
+            setTimeout(function() {
+                e.trigger.textContent = 'Copy';
+            }, 2000);
+        });
+    });
+});
+</script>
