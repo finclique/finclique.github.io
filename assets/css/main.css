@@ -269,5 +269,126 @@ main.container { margin-top: 30px; margin-bottom: 30px; }
     width: auto;      /* Biarkan lebar menyesuaikan secara otomatis agar proporsional. */
     vertical-align: middle; /* Memastikan logo sejajar dengan baik */
 }
+/* ==========================================================================
+   STYLING UNTUK HALAMAN 404 YANG KEREN
+   ========================================================================== */
+
+.body-404 {
+    background-image: linear-gradient(to bottom, #2d3a50 0%, #000 100%);
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+}
+
+/* --- Latar Belakang Bintang Parallax --- */
+@keyframes move-stars-bg {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(-10000px); }
+}
+.stars {
+    background: black url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABtnClUFMAAAAASUVORK5CYII=) repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+}
+#stars1 {
+    background-size: 50px 50px;
+    animation: move-stars-bg 200s linear infinite;
+}
+#stars2 {
+    background-size: 100px 100px;
+    animation: move-stars-bg 150s linear infinite;
+}
+#stars3 {
+    background-size: 150px 150px;
+    animation: move-stars-bg 100s linear infinite;
+}
+
+/* --- Konten Tengah --- */
+.central-body {
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    z-index: 2;
+}
+.image-404 {
+    position: relative;
+    z-index: 100;
+    width: 200px;
+}
+.p-404-1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 20px 0 10px 0;
+    color: #FFC107;
+}
+.p-404-2 {
+    font-size: 1.1em;
+    margin: 0 0 25px 0;
+    max-width: 450px;
+}
+.btn-go-home {
+    position: relative;
+    z-index: 200;
+    padding: 12px 25px;
+    background-color: #FFC107;
+    border-radius: 50px;
+    color: #2d3a50;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.btn-go-home:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+/* --- Animasi Objek Melayang --- */
+@keyframes rocket-movement {
+    0% { transform: translateY(0px) rotate(45deg); }
+    50% { transform: translateY(20px) rotate(45deg); }
+    100% { transform: translateY(0px) rotate(45deg); }
+}
+@keyframes astronaut-movement {
+    0% { transform: translateY(-10px) rotate(0deg) translateX(10px); }
+    50% { transform: translateY(10px) rotate(-20deg) translateX(-10px); }
+    100% { transform: translateY(-10px) rotate(0deg) translateX(10px); }
+}
+
+.object_rocket {
+    z-index: 1;
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    animation: rocket-movement 6s ease-in-out infinite;
+}
+.object_astronaut {
+    z-index: 1;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    animation: astronaut-movement 8s ease-in-out infinite;
+}
+
+@media (max-width: 600px) {
+    .object_rocket { display: none; }
+    .object_astronaut { left: 5%; }
+    .p-404-1 { font-size: 2em; }
+}
 
 
