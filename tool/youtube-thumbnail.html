@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Thumbnail Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #11a09a;
+            --shape-color: #f7b733;
+            --title1-color: #d9534f;
+            --title2-bg: #f7b733;
+            --title2-text: #ffffff;
+            --main-text-color: #ffffff;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; gap: 20px; background-color: #f0f2f5; padding: 20px; line-height: 1.5; }
+        .controls { flex: 1; min-width: 300px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-height: 90vh; overflow-y: auto; }
+        .preview-wrapper { flex: 2; display: flex; flex-direction: column; align-items: center; }
+        h1, h2 { color: #2c3e50; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9em; }
+        input[type="text"], input[type="color"], input[type="file"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        input[type="color"] { height: 40px; padding: 5px; }
+        .download-btn { background: #2ecc71; color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 1.1em; font-weight: bold; display: block; width: 100%; margin-top: 20px; transition: background 0.2s; }
+        .download-btn:hover { background: #27ae60; }
+        .info { font-size: 0.9em; color: #777; background: #e8f4fd; padding: 10px; border-radius: 4px; border-left: 4px solid #3498db; margin-top: 5px; }
+
+        /* Styles for the Thumbnail Canvas */
+        #thumbnail-container { transform: scale(0.5); transform-origin: top center; }
+        #thumbnail {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--main-text-color);
+        }
+        .shape { position: absolute; }
+        .shape svg { width: 100%; height: 100%; }
+        .shape svg path { fill: var(--shape-color); }
+        .shape-top { width: 1000px; height: 350px; top: -100px; left: -100px; transform: rotate(-15deg); }
+        .shape-bottom { width: 1000px; height: 350px; bottom: -150px; right: -150px; transform: rotate(15deg); }
+        
+        #text-wrapper { position: absolute; top: 100px; left: 60px; z-index: 10; }
+        #title1-preview { font-size: 80px; font-weight: 900; color: var(--title1-color); margin: 0; }
+        #title2-wrapper { background-color: var(--title2-bg); color: var(--title2-text); display: inline-block; padding: 10px 30px; font-size: 60px; font-weight: 900; margin-top: -10px; transform: rotate(-2deg); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        #title3-preview, #title4-preview { font-weight: 900; margin: 0; line-height: 1.1; }
+        #title3-preview { font-size: 100px; margin-top: 20px; }
+        #title4-preview { font-size: 160px; }
+
+        #image-wrapper { position: absolute; top: 50px; right: 50px; width: 700px; height: 600px; z-index: 5; }
+        #image-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* EFEK SHADOW BLUR YANG ANDA MINTA */
+            filter: drop-shadow(0px 10px 25px rgba(0,0,0,0.4));
+        }
+        
+        @media (max-width: 800px) {
+            body { flex-direction: column; padding: 10px; }
+            .controls { max-height: none; order: 1; }
+            .preview-wrapper { order: 2; margin-top: 20px; }
+            #thumbnail-container { transform: scale(0.4); height: 300px; }
+        }
+        @media (max-width: 480px) {
+            #thumbnail-container { transform: scale(0.28); height: 210px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <h1>YT Thumbnail Generator</h1>
+        
+        <h2>Teks</h2>
+        <div class="form-group"><label for="title1">Judul Atas (Merah)</label><input type="text" id="title1" value="TUTORIAL"></div>
+        <div class="form-group"><label for="title2">Judul Banner</label><input type="text" id="title2" value="TERLENGKAP"></div>
+        <div class="form-group"><label for="title3">Judul Utama Baris 1</label><input type="text" id="title3" value="JUALAN DI"></div>
+        <div class="form-group"><label for="title4">Judul Utama Baris 2</label><input type="text" id="title4" value="YOUTUBE"></div>
+
+        <h2>Gambar</h2>
+        <div class="form-group">
+            <label for="image-upload">Gambar Ilustrasi</label>
+            <input type="file" id="image-upload" accept="image/*">
+            <p class="info">Gunakan file <strong>.png</strong> dengan latar belakang transparan untuk hasil terbaik.</p>
+        </div>
+
+        <h2>Warna</h2>
+        <div class="form-group"><label for="bg-color">Latar Belakang (Teal)</label><input type="color" id="bg-color" value="#11a09a"></div>
+        <div class="form-group"><label for="shape-color">Bentuk Dekoratif (Orange)</label><input type="color" id="shape-color" value="#f7b733"></div>
+        <div class="form-group"><label for="title1-color">Judul Atas (Merah)</label><input type="color" id="title1-color" value="#d9534f"></div>
+        <div class="form-group"><label for="title2-bg">Latar Banner</label><input type="color" id="title2-bg" value="#f7b733"></div>
+        <div class="form-group"><label for="title2-text">Teks Banner</label><input type="color" id="title2-text" value="#ffffff"></div>
+        <div class="form-group"><label for="main-text-color">Teks Judul Utama</label><input type="color" id="main-text-color" value="#ffffff"></div>
+
+        <button class="download-btn" onclick="downloadThumbnail()">Unduh Thumbnail (1280x720)</button>
+    </div>
+
+    <div class="preview-wrapper">
+        <div id="thumbnail-container">
+            <div id="thumbnail">
+                <div class="shape shape-top">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M-3.66,75.91 C150.33,212.78 349.20,-49.98 501.97,55.93 L500.00,0.00 L0.00,0.00 Z"></path></svg>
+                </div>
+                 <div class="shape shape-bottom">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M503.66,75.91 C349.67,-82.78 150.80,212.78 -1.97,95.93 L0.00,150.00 L500.00,150.00 Z"></path></svg>
+                </div>
+                
+                <div id="image-wrapper">
+                    <img id="image-preview" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Main Illustration">
+                </div>
+
+                <div id="text-wrapper">
+                    <h2 id="title1-preview">TUTORIAL</h2>
+                    <div id="title2-wrapper"><span id="title2-preview">TERLENGKAP</span></div>
+                    <h3 id="title3-preview">JUALAN DI</h3>
+                    <h4 id="title4-preview">YOUTUBE</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const root = document.documentElement;
+    const inputs = {
+        title1: document.getElementById('title1'),
+        title2: document.getElementById('title2'),
+        title3: document.getElementById('title3'),
+        title4: document.getElementById('title4'),
+        imageUpload: document.getElementById('image-upload'),
+        bgColor: document.getElementById('bg-color'),
+        shapeColor: document.getElementById('shape-color'),
+        title1Color: document.getElementById('title1-color'),
+        title2Bg: document.getElementById('title2-bg'),
+        title2Text: document.getElementById('title2-text'),
+        mainTextColor: document.getElementById('main-text-color'),
+    };
+    const previews = {
+        title1: document.getElementById('title1-preview'),
+        title2: document.getElementById('title2-preview'),
+        title3: document.getElementById('title3-preview'),
+        title4: document.getElementById('title4-preview'),
+        title2Wrapper: document.getElementById('title2-wrapper'),
+        image: document.getElementById('image-preview'),
+    };
+
+    // Text listeners
+    inputs.title1.addEventListener('input', e => previews.title1.textContent = e.target.value);
+    inputs.title2.addEventListener('input', e => previews.title2.textContent = e.target.value);
+    inputs.title3.addEventListener('input', e => previews.title3.textContent = e.target.value);
+    inputs.title4.addEventListener('input', e => previews.title4.textContent = e.target.value);
+    
+    // Color listeners
+    inputs.bgColor.addEventListener('input', e => root.style.setProperty('--bg-color', e.target.value));
+    inputs.shapeColor.addEventListener('input', e => root.style.setProperty('--shape-color', e.target.value));
+    inputs.title1Color.addEventListener('input', e => root.style.setProperty('--title1-color', e.target.value));
+    inputs.title2Bg.addEventListener('input', e => root.style.setProperty('--title2-bg', e.target.value));
+    inputs.title2Text.addEventListener('input', e => root.style.setProperty('--title2-text', e.target.value));
+    inputs.mainTextColor.addEventListener('input', e => root.style.setProperty('--main-text-color', e.target.value));
+
+    // Image upload listener
+    inputs.imageUpload.addEventListener('change', e => {
+        if (e.target.files && e.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = event => previews.image.src = event.target.result;
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
+
+    // Download function
+    function downloadThumbnail() {
+        const thumbnailNode = document.getElementById('thumbnail');
+        const container = document.getElementById('thumbnail-container');
+        container.style.transform = 'scale(1)';
+
+        html2canvas(thumbnailNode, {
+            width: 1280,
+            height: 720,
+            scale: 1,
+            useCORS: true,
+            backgroundColor: null // Capture transparent background if any
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'youtube-thumbnail.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            link.remove();
+            
+            // Revert scale after capture
+            const scale = window.innerWidth <= 480 ? 0.28 : (window.innerWidth <= 800 ? 0.4 : 0.5);
+            container.style.transform = `scale(${scale})`;
+        });
+    }
+</script>
+</body>
+</html>
