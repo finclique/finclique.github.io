@@ -15,13 +15,21 @@ author:
 permalink: /:slug/
 highlighter: rouge
 
+include:
+  - pages
+
 # Plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-paginate
 
+collections:
+  tools:
+    output: false
+
 # Konfigurasi Pagination (tetap sama)
 paginate: 6
 paginate_path: "/page/:num/"
+
 
 
