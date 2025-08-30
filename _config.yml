@@ -15,21 +15,22 @@ author:
 permalink: /:slug/
 highlighter: rouge
 
-include:
-  - pages
-
 # Plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-paginate
 
-collections:
-  tools:
-    output: false
-
 # Konfigurasi Pagination (tetap sama)
 paginate: 6
 paginate_path: "/page/:num/"
 
+# 1. Beritahu Jekyll tentang folder '_tools' Anda
+collections:
+  tools:
+    output: false
+
+# 2. Beritahu Jekyll untuk tidak mengabaikan folder 'pages'
+include:
+  - pages
 
 
