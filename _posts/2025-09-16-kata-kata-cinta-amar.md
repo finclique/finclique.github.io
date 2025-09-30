@@ -7,405 +7,313 @@ image: sdgs
 
 
 ```javascript
-Udah makan apa hari ini?
+Hai cantik, lagi sibuk apa sekarang?
 ```
 
 ```javascript
-Kalau lagi santai biasanya kamu suka ngapain?
+Lagi rebahan aja, capek habis kuliah. Kamu?
 ```
 
 ```javascript
-Hal kecil apa yang bikin kamu senyum akhir-akhir ini?
+Baru pulang kerja, pengen santai juga. Eh, aku boleh kenalan nggak?
 ```
 
 ```javascript
-Tempat nongkrong favorit kamu di kota ini di mana?
+Boleh dong, aku [nama]. Kamu siapa?
 ```
 
 ```javascript
-Kalau bisa liburan gratis, pengin ke mana?
+Aku [nama]. Seneng banget bisa kenal sama kamu.
 ```
 
 ```javascript
-Musik apa yang paling bikin kamu rileks?
+Kamu kuliah jurusan apa sih?
 ```
 
 ```javascript
-Film apa yang terakhir bikin kamu ketawa?
+Jurusan ekonomi, hehe. Kalau kamu?
 ```
 
 ```javascript
-Buku apa yang pernah bikin kamu susah move on ceritanya?
+Aku kerja di bagian IT, lumayan pusing sih sama komputer tiap hari.
 ```
 
 ```javascript
-Lagu apa yang lagi kamu ulang-ulang terus?
+Pantesan keliatan pinter, hehe.
 ```
 
 ```javascript
-Pernah pelihara hewan yang lucu banget?
+Ah bisa aja, pinter mah nggak, yang penting rajin.
 ```
 
 ```javascript
-Makanan apa yang nggak pernah bikin kamu bosen?
+Eh, kamu asli sini atau perantau?
 ```
 
 ```javascript
-Weekend biasanya kamu lebih suka di rumah atau keluar?
+Asli sini kok. Kamu juga?
 ```
 
 ```javascript
-Kenangan liburan mana yang paling berkesan buat kamu?
+Iya, aku juga asli sini. Wah, berarti bisa sering ketemu nih.
 ```
 
 ```javascript
-Kamu tim kopi atau tim teh?
+Hmm, pede banget ya kamu.
 ```
 
 ```javascript
-Olahraga apa yang paling kamu enjoy?
+Hehe, soalnya pengen kenal kamu lebih dekat.
 ```
 
 ```javascript
-Cemilan apa yang selalu ada di tas kamu?
+Ngomong-ngomong, kamu suka nongkrong di mana biasanya?
 ```
 
 ```javascript
-Game apa yang sering kamu mainin?
+Aku suka café, apalagi kalau ada kopi. Kamu suka kopi nggak?
 ```
 
 ```javascript
-Kalau dikasih pilihan pantai atau gunung, kamu pilih mana?
+Suka banget, favoritku kopi hitam.
 ```
 
 ```javascript
-Sahabat terdekat kamu biasanya kamu ajak curhat soal apa?
+Wih sama dong, aku juga suka kopi hitam.
 ```
 
 ```javascript
-Pernah ikut komunitas seru apa gitu?
+Tapi jangan sering-sering ya, nanti deg-degan terus.
 ```
 
 ```javascript
-Drama Korea apa yang terakhir kamu tonton?
+Deg-degan kenapa?
 ```
 
 ```javascript
-Kalau lagi bete, biasanya ngapain biar mood balik lagi?
+Ya soalnya kalau minum kopi sambil liat kamu, jantung aku cepet banget.
 ```
 
 ```javascript
-Apa hal spontan yang bikin kamu happy kemarin?
+Hahaha gombalnya keluar.
 ```
 
 ```javascript
-Kalau ada waktu kosong sejam, biasanya dipakai buat apa?
+Eh, kamu suka musik apa?
 ```
 
 ```javascript
-Hobi kecil apa yang bikin kamu betah sendirian?
+Aku suka pop, kadang dengerin akustik juga. Kamu?
 ```
 
 ```javascript
-Kamu lebih suka nonton bioskop atau streaming di rumah?
+Aku lebih ke rock, tapi kalau kamu nyanyi aku pasti langsung suka.
 ```
 
 ```javascript
-Pernah ngalamin kejadian lucu pas sekolah?
+Waduh, jangan harap aku nyanyi deh, suara pas-pasan.
 ```
 
 ```javascript
-Kalau ada yang ngajak jalan tiba-tiba, kamu biasanya oke nggak?
+Nggak apa-apa, yang penting tulus.
 ```
 
 ```javascript
-Makanan tradisional favorit kamu apa?
+Kamu suka nonton film nggak?
 ```
 
 ```javascript
-Kamu suka ngemil sambil nonton film nggak?
+Suka banget, biasanya genre romantis.
 ```
 
 ```javascript
-Hal apa yang selalu bikin kamu semangat bangun pagi?
+Wah pas banget, aku juga suka film romantis. Mungkin kita bisa nonton bareng nanti?
 ```
 
 ```javascript
-Kalau bisa pilih superpower, kamu pengin punya kekuatan apa?
+Hehe, modus ya.
 ```
 
 ```javascript
-Kamu lebih suka ngobrol lewat chat atau ketemu langsung?
+Nggak, serius. Enak aja nonton film sambil ada yang nemenin.
 ```
 
 ```javascript
-Minuman dingin favorit kamu apa?
+Kamu sering keluar malam nggak?
 ```
 
 ```javascript
-Kalau lagi sendiri di kamar, biasanya kamu ngapain?
+Kadang sih, kalau lagi suntuk. Kamu?
 ```
 
 ```javascript
-Kenangan masa kecil apa yang paling lucu buat kamu?
+Aku juga, biasanya jalan-jalan naik motor sambil denger lagu.
 ```
 
 ```javascript
-Kamu suka hewan kucing, anjing, atau yang lain?
+Romantis banget tuh.
 ```
 
 ```javascript
-Kalau punya waktu luang panjang, kamu lebih pilih jalan-jalan atau tidur?
+Kamu gampang bosen nggak sih?
 ```
 
 ```javascript
-Hal apa yang bikin kamu gampang nostalgia?
+Kadang, kalau ngobrolnya nggak nyambung.
 ```
 
 ```javascript
-Kamu tipe orang yang suka foto-foto nggak?
+Oh, kalau sama aku nyambung nggak?
 ```
 
 ```javascript
-Kalau lagi hujan deras, biasanya kamu ngapain?
+Nyambung sih, malah asik.
 ```
 
 ```javascript
-Benda kecil apa yang selalu kamu bawa kemana-mana?
+Yes! Berarti aku lulus jadi temen ngobrol kamu.
 ```
 
 ```javascript
-Kamu pernah dapet hadiah random yang bikin seneng banget?
+Btw kamu punya hewan peliharaan?
 ```
 
 ```javascript
-Kalau bisa balik ke masa kecil sehari aja, kamu mau ngapain?
+Iya, aku punya kucing. Gemes banget deh.
 ```
 
 ```javascript
-Kamu lebih suka sunrise atau sunset?
+Aku suka kucing juga, jadi penasaran pengen liat.
 ```
 
 ```javascript
-Pernah ngerasa malu banget gara-gara hal sepele?
+Ntar aku fotoin ya kalau ketemu.
 ```
 
 ```javascript
-Kamu suka nyobain makanan baru atau setia sama yang itu-itu aja?
+Deal, aku tunggu.
 ```
 
 ```javascript
-Hal paling aneh yang pernah kamu makan apa?
+Eh, kamu biasanya bangun pagi atau siang?
 ```
 
 ```javascript
-Kalau ada konser gratis, pengin nonton siapa?
+Kalau nggak ada kuliah ya siang, haha. Kamu?
 ```
 
 ```javascript
-Kamu lebih suka chatting panjang lebar atau telepon singkat?
+Aku kebiasaan pagi, soalnya kerja. Tapi kalau kamu mau dibangunin tiap pagi juga bisa.
 ```
 
 ```javascript
-Pernah ketemu orang yang mirip banget sama artis?
+Waduh, nanti aku malah baper.
 ```
 
 ```javascript
-Kalau bisa pilih, kamu lebih suka jadi pendiam atau rame?
+Biarin aja, kan enak baper sama aku.
 ```
 
 ```javascript
-Kamu lebih suka suasana ramai atau sepi?
+Kamu suka makanan pedas nggak?
 ```
 
 ```javascript
-Hal kecil apa yang bikin kamu merasa dihargai?
+Suka banget, bikin nagih.
 ```
 
 ```javascript
-Kalau ada satu hari tanpa gadget, kamu bakal ngapain?
+Aku juga, cocok nih kalau makan bareng kita nggak bingung pilih menu.
 ```
 
 ```javascript
-Kamu lebih suka musim hujan atau musim panas?
+Asik banget, bisa makan bareng sambil ngobrol.
 ```
 
 ```javascript
-Pernah punya mimpi aneh banget pas tidur?
+Kalau liburan gitu, kamu suka ke mana?
 ```
 
 ```javascript
-Kalau lagi capek, cara kamu nenangin diri gimana?
+Aku lebih suka pantai, adem dan romantis. Kamu?
 ```
 
 ```javascript
-Kamu lebih suka nonton film horor atau komedi?
+Aku suka dua-duanya sih, gunung juga suka. Tapi kalau bareng kamu, pantai pasti lebih indah.
 ```
 
 ```javascript
-Kalau disuruh milih, kamu pilih jalan kaki atau naik motor?
+Cieee, gombal lagi.
 ```
 
 ```javascript
-Ada hal random yang selalu bikin kamu ketawa sendiri?
+Hahaha iya maaf, udah kebiasaan kalau sama kamu.
 ```
 
 ```javascript
-Kamu pernah salah kirim chat yang bikin malu?
+Eh, kamu sering main sosmed?
 ```
 
 ```javascript
-Kalau bisa belajar bahasa baru, kamu pilih bahasa apa?
+Iya, paling sering di Instagram.
 ```
 
 ```javascript
-Hal apa yang bikin kamu excited minggu ini?
+Aku boleh follow nggak? Biar bisa liat senyum kamu tiap hari.
 ```
 
 ```javascript
-Kalau lagi lapar tengah malam, biasanya kamu makan apa?
+Boleh, asal jangan kepo banget.
 ```
 
 ```javascript
-Kamu suka foto candid atau pose?
+Janji deh, aku cuma pengen liat senyumanmu aja.
 ```
 
 ```javascript
-Kalau bisa tukeran hidup sehari sama siapa, kamu pilih siapa?
+Ngomong-ngomong, kamu gampang jatuh hati nggak sih?
 ```
 
 ```javascript
-Kamu lebih suka lagu mellow atau upbeat?
+Nggak juga, biasanya butuh waktu.
 ```
 
 ```javascript
-Pernah kehabisan baterai di momen penting?
+Kalau aku sih, gampang jatuh hati sama senyum kamu.
 ```
 
 ```javascript
-Kalau dikasih tiket gratis, kamu pilih konser musik atau drama teater?
+Hahaha, aduh bikin malu aja.
 ```
 
 ```javascript
-Hal kecil apa yang paling bikin kamu merasa spesial?
+Malu kenapa? Justru lucu liat pipimu jadi merah.
 ```
 
 ```javascript
-Kamu suka nonton acara TV lama atau yang baru?
+Hmm, nakal banget kamu.
 ```
 
 ```javascript
-Kalau lagi bete, lebih suka sendirian atau ditemenin?
+Nakal dikit biar seru.
 ```
 
 ```javascript
-Hal random apa yang bikin kamu penasaran akhir-akhir ini?
+Eh, boleh tukeran nomor WA nggak? Biar ngobrolnya lebih gampang.
 ```
 
 ```javascript
-Kamu lebih suka warna cerah atau gelap?
+Boleh sih, tapi jangan gangguin tengah malam ya.
 ```
 
 ```javascript
-Kalau bisa beli apa aja sekarang, kamu pengin apa?
+Tenang, aku gangguinnya siang malem biar kamu nggak kangen.
 ```
 
 ```javascript
-Hal apa yang kamu syukuri hari ini?
+Duh, parah banget ini.
 ```
 
 ```javascript
-Kamu lebih suka jalan sore atau malam?
-```
-
-```javascript
-Kalau lagi bosan, aplikasi apa yang sering kamu buka?
-```
-
-```javascript
-Hal paling random yang pernah kamu temuin di jalan apa?
-```
-
-```javascript
-Kamu lebih suka ngemil manis atau gurih?
-```
-
-```javascript
-Kalau dikasih satu hari bebas tugas, kamu mau ngapain?
-```
-
-```javascript
-Kenangan sekolah apa yang paling nggak bisa dilupain?
-```
-
-```javascript
-Kamu suka nulis diary atau catatan kecil nggak?
-```
-
-```javascript
-Hal kecil apa yang bikin kamu selalu inget sama rumah?
-```
-
-```javascript
-Kamu lebih suka ngobrol serius atau bercanda?
-```
-
-```javascript
-Kalau lagi sakit, biasanya kamu manja ke siapa?
-```
-
-```javascript
-Kamu suka main musik atau cuma dengerin aja?
-```
-
-```javascript
-Hal apa yang paling bikin kamu takut ketinggalan?
-```
-
-```javascript
-Kalau ada tantangan seru, kamu suka coba atau nggak?
-```
-
-```javascript
-Kamu lebih suka olahraga indoor atau outdoor?
-```
-
-```javascript
-Kalau bisa ganti nama sehari, kamu pengin dipanggil apa?
-```
-
-```javascript
-Hal random apa yang terakhir kali bikin kamu ngakak?
-```
-
-```javascript
-Kamu suka nonton reality show nggak?
-```
-
-```javascript
-Kalau lagi suntuk, tempat mana yang bikin kamu tenang?
-```
-
-```javascript
-Hal apa yang bikin kamu paling deg-degan?
-```
-
-```javascript
-Kamu lebih suka ngobrol panjang malam hari atau pagi hari?
-```
-
-```javascript
-Kalau bisa punya hewan unik, kamu pilih apa?
-```
-
-```javascript
-Hal random apa yang sering banget kamu kepikiran pas mau tidur?
-```
-
-```javascript
-Kamu lebih suka hangout rame-rame atau quality time berdua?
-```
-
-```javascript
-Kalau bisa bikin acara sendiri, tema apa yang kamu pilih?
+Hahaha bercanda. Yang penting aku seneng bisa kenal kamu hari ini.
 ```
